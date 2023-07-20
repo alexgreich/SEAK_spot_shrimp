@@ -54,21 +54,3 @@ ggplot(Specimens_with_potdata_2.1) + aes(x=Carapace.Length.Millimeters, fill=Yea
 ggplot(Specimens_with_potdata_2.2) + aes(x=Carapace.Length.Millimeters, fill=Year, alpha=0.5) + geom_density() + facet_wrap(~Year, ncol=1) +
   theme_bw()#allows us to see an age class, sort of
 
-####alter below before run
-
-###how many years do we hace of the not pot data?
-Upper_ernest_sound_spec_wout_potdata <- Specimens_without_potdata %>% filter(Stat.Area=="107-20")
-unique(Upper_ernest_sound_spec_wout_potdata$Year)
-##we only have three years of data...
-#graphing
-ggplot(Upper_ernest_sound_spec_wout_potdata) + aes(x=Carapace.Length.Millimeters, fill=Year, alpha=0.5) + geom_density() + facet_wrap(~Year) +
-  theme_bw() + scale_fill_viridis_d() #this looks the same. Maybe the same dataset with less info
-
-
-#how many years are in this dataset?
-unique(Specimens_with_potdata$Year)
-##hmm. something in the data is messed up?
-View(Upper_ernest_sound_spec_w_potdata)
-
-
-#somethign is wrong with the data. Hidden little angry message at the end of the csv. Something glitched up in the download
