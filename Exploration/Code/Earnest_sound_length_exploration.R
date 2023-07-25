@@ -26,17 +26,23 @@ Specimens_with_potdata_c <- Specimens_with_potdata_int %>%
   filter(Species=="Spot shrimp") %>%
   filter(Pot.Condition=="Normal") %>%
   filter(Soak.Time >= 16 & Soak.Time <= 24)
+
+#Done with filtering the things out of the dataset
+#Now I 
   
 
 #focus on the with pot data for now.
-names(Specimens_with_potdata)
+#names(Specimens_with_potdata)
 
+
+#as of 07/25/23 the code below is out of date.
+#####################################33
 
 #graph the lengths
 library(ggplot2)
 library(viridis)
 
-ggplot(Specimens_with_potdata) + aes(x=Carapace.Length.Millimeters, fill=Year, alpha=0.5) + geom_density() + facet_wrap(~Year) +
+ggplot(Specimens_with_potdata_c) + aes(x=Carapace.Length.Millimeters, fill=Year, alpha=0.5) + geom_density() + facet_wrap(~Year) +
   theme_bw()#+scale_fill_viridis_d()
 
 ggplot(Specimens_with_potdata) + aes(x=Carapace.Length.Millimeters, fill=Year, alpha=0.5) + geom_density() + facet_wrap(~Year, ncol=2) +
