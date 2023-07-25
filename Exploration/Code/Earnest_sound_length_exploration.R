@@ -25,14 +25,16 @@ Specimens_with_potdata_c <- Specimens_with_potdata_int %>%
   filter(Sample.Type=="Size") %>%
   filter(Species=="Spot shrimp") %>%
   filter(Pot.Condition=="Normal") %>%
-  filter(Soak.Time >= 16 & Soak.Time <= 24)
+  filter(Soak.Time >= 16 & Soak.Time <= 24) %>%
+  filter(Number.of.Specimens != 0)
 
 #Done with filtering the things out of the dataset
-#Now I 
-  
-
-#focus on the with pot data for now.
-#names(Specimens_with_potdata)
+#Now I will need to expand the dataset rows to represent one measurement per observation(shrimp)
+#?pivot_longer
+#?gather
+#?separate_rows
+#?separate_longer_delim
+#?separate_longer_position
 
 
 #as of 07/25/23 the code below is out of date.
