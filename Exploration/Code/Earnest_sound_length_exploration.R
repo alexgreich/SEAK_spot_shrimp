@@ -15,13 +15,17 @@ Specimens_with_potdata<- bind_rows(Specimens_with_potdata_1, Specimens_with_potd
 
 #clean data
 library(lubridate)
+#Specimens_with_potdata_int <- Specimens_with_potdata %>%
+ # mutate()
+  
 Specimens_with_potdata_int <- Specimens_with_potdata %>%
-  mutate(Soak.Time = Time.Lift.Begin - Time.Set.Begin)
+  mutate(Soak.Time = ymd_hms(Time.Lift.Begin) - ymd_hms(Time.Set.Begin))
 
 Specimens_with_potdata_c <- Specimens_with_potdata_int %>% 
   filter(Sample.Type=="Size") %>%
   filter(Species=="Spot shrimp") %>%
-  filter(Pot.Condition=="Normal")
+  filter(Pot.Condition=="Normal") %>%
+  filter(Soak.Time >= 16 & Soak.Time <= 24)
   
 
 #focus on the with pot data for now.
